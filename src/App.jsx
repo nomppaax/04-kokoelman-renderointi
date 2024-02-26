@@ -2,11 +2,13 @@ import { useState } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 
+const Display = (props) => <div>{props.value}</div>;
+
 const Button = (props) => (
   <button onClick={props.handleClick}>{props.text}</button>
 );
 
-const App = (props) => {
+const App = () => {
   const [value, setValue] = useState(10);
 
   const setToValue = (newValue) => {
@@ -16,7 +18,7 @@ const App = (props) => {
 
   return (
     <div>
-      {value}
+      <Display value={value} />
       <Button handleClick={() => setToValue(1000)} text="thousand" />
       <Button handleClick={() => setToValue(0)} text="reset" />
       <Button handleClick={() => setToValue(value + 1)} text="increment" />
